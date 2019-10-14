@@ -4,31 +4,31 @@ import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
-const Book = ({ user, alerts, match }) => {
-  const [book, setBook] = useState(null)
+const InstaPost = ({ user, alerts, match }) => {
+  const [instapost, setInstaPost] = useState(null)
 
   useEffect(() => {
     axios({
       method: 'GET',
-      url: `${apiUrl}/books/${match.params.id}`,
+      url: `${apiUrl}/instaposts/${match.params.id}`,
       headers: {
         'Authorization': `Token token=${user.token}`
       }
     })
-      .then(responseData => setBook(responseData.data.book))
+      .then(responseData => setInstaPost(responseData.data.book))
       .catch(console.error)
   }, [])
 
-  if (!book) {
+  if (!instapost) {
     return <p>Loading...</p>
   }
   return (
     <div>
-      <h1>Books</h1>
-      <p>Title:{book.title}</p>
-      <Button href={`#/books/${match.params.id}/edit`}>Edit</Button>
+      <h1>Posties</h1>
+      <p>Title:{instapost.title}</p>
+      <Button href={`#/instaposts/${match.params.id}/edit`}>Edit</Button>
     </div>
   )
 }
 
-export default withRouter(Book)
+export default withRouter(InstaPost)

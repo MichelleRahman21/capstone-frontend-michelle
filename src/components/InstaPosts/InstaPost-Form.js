@@ -3,19 +3,19 @@ import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-const BookForm = ({ book, handleChange, handleSubmit }) => {
-  const cancelPath = book._id ? `#/books/${book._id}` : '#books'
+const InstaPostForm = ({ instapost, handleChange, handleSubmit }) => {
+  const cancelPath = instapost._id ? `#/instaposts/${instapost._id}` : '#instaposts'
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="title">
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Post</Form.Label>
         <Form.Control
           type="text"
           placeholder="Title"
           name="title"
           onChange={handleChange}
-          value={book.title}
+          value={instapost.title}
           required
         />
       </Form.Group>
@@ -26,7 +26,7 @@ const BookForm = ({ book, handleChange, handleSubmit }) => {
           placeholder="Author"
           name="author"
           onChange={handleChange}
-          value={book.author}
+          value={instapost.author}
           required
         />
       </Form.Group>
@@ -36,4 +36,4 @@ const BookForm = ({ book, handleChange, handleSubmit }) => {
   )
 }
 
-export default BookForm
+export default InstaPostForm

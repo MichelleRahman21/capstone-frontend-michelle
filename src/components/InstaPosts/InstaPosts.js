@@ -3,32 +3,32 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import { Link } from 'react-router-dom'
 
-const Books = ({ user, alerts }) => {
-  const [books, setBooks] = useState(null)
+const InstaPosts = ({ user, alerts }) => {
+  const [instaposts, setInstaPosts] = useState(null)
   useEffect(() => {
     axios({
       method: 'GET',
-      url: `${apiUrl}/books/`,
+      url: `${apiUrl}/instaposts/`,
       headers: {
         'Authorization': `Token token=${user.token}`
       }
     })
-      .then(responseData => setBooks(responseData.data.books))
+      .then(responseData => setInstaPosts(responseData.data.instaposts))
       .catch(console.error)
   }, [])
 
-  const booksJsx = books.map(book => (
-    <p key={book._id}>
-      <Link to={`/books/${book._id}`}>Title:{book.title}</Link>
+  const instapostsJsx = instaposts.map(instapost => (
+    <p key={instapost._id}>
+      <Link to={`/instaposts/${instapost._id}`}>Postie:{instapost.title}</Link>
     </p> // mongo uses _id instead of .id
   ))
   return (
 
     <Fragment>
-      <h1>Books</h1>
-      {booksJsx}
+      <h1>Posties</h1>
+      {instapostsJsx}
     </Fragment>
   )
 }
 
-export default Books
+export default InstaPosts

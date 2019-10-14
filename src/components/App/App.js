@@ -8,10 +8,11 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
-import Books from '../Books/Books'
-import Book from '../Books/Book'
-import CreateBook from '../Books/CreateBook'
-import EditBook from '../Books/EditBook'
+import InstaPosts from '../InstaPosts/InstaPosts'
+import InstaPost from '../InstaPosts/InstaPost'
+import CreateInstaPost from '../InstaPosts/CreateInstaPost'
+import EditInstaPost from '../InstaPosts/EditInstaPost'
+import DeleteInstaPost from '../InstaPosts/DeleteInstaPost'
 
 class App extends Component {
   state = {
@@ -57,9 +58,9 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             exact
-            path='/books'
+            path='/InstaPosts'
             render={() => (
-              <Books
+              <InstaPosts
                 user={user}
                 alert={this.alert}
               />
@@ -67,9 +68,9 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            exact path='/books/:id'
+            exact path='/InstaPosts/:id'
             render={() => (
-              <Book
+              <InstaPost
                 user={user}
                 alert={this.alert}
               />
@@ -78,9 +79,9 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             exact
-            path='/create-book'
+            path='/create-instapost'
             render={() => (
-              <CreateBook
+              <CreateInstaPost
                 user={user}
                 alert={this.alert}
               />
@@ -88,9 +89,19 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            path='/books/:id/edit'
+            path='/instaposts/:id/edit'
             render={() => (
-              <EditBook
+              <EditInstaPost
+                user={user}
+                alert={this.alert}
+              />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/instaposts/:id/edit'
+            render={() => (
+              <DeleteInstaPost
                 user={user}
                 alert={this.alert}
               />
