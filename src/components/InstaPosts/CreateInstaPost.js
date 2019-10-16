@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import InstaPostForm from './InstaPost-Form'
 
 const CreateInstaPost = ({ user }) => {
-  const instapostObject = { title: '', author: '' } // URL?
-  const [created, setCreated] = useState(false)
+  const instapostObject = { title: '', url: [] } // URL?
+  const [created, setCreated] = useState(null)
   const [instapost, setInstaPost] = useState(instapostObject)
 
   const handleChange = event => {
@@ -19,19 +19,21 @@ const CreateInstaPost = ({ user }) => {
     axios({
       method: 'POST',
       url: `${apiUrl}/instaposts`,
+      data: { instapost },
       headers: {
-        'Authorization': `Token token=${user.token}`
-      },
-      data: { instapost }
+        'Authorization': `Bearer ${user.token}`
+      }
     })
-      .then(responseData => setCreated(responseData.data.instapost._id))
+      .then(res => setCreated(res.data.instaPost._id))
       .catch(console.error)
   }
   if (created) {
-    return <Redirect to={`/instaposts/${created}`}/>
+    return <Redirect to={'/instaposts/'}/>
   }
   return (
-    <InstaPostForm book={instapost} handleChange={handleChange} handleSubmit={handleSubmit}/>
+    <Fragment>
+      <InstaPostForm instapost={instapost} handleChange={handleChange} handleSubmit={handleSubmit} cancelPath="/"/>
+    </Fragment>
   )
 }
 

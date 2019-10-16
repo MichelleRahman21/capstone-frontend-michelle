@@ -58,7 +58,7 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             exact
-            path='/InstaPosts'
+            path='/instaposts'
             render={() => (
               <InstaPosts
                 user={user}
@@ -68,7 +68,7 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            exact path='/InstaPosts/:id'
+            exact path='/instaposts/:id'
             render={() => (
               <InstaPost
                 user={user}
@@ -79,7 +79,7 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             exact
-            path='/create-instapost'
+            path='/create-instaposts'
             render={() => (
               <CreateInstaPost
                 user={user}
@@ -89,7 +89,7 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            path='/instaposts/:id/edit'
+            exact path='/instaposts/:id/edit'
             render={() => (
               <EditInstaPost
                 user={user}
@@ -99,7 +99,7 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            path='/instaposts/:id/edit'
+            path='/instaposts/:id'
             render={() => (
               <DeleteInstaPost
                 user={user}

@@ -8,8 +8,6 @@ const authenticatedOptions = (
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
     <Nav.Link href="#instaposts">Insta Posts</Nav.Link>
     <Nav.Link href="#create-instaposts">Create A Post</Nav.Link>
-    <Nav.Link href="#update-instapost">Edit A Post</Nav.Link>
-    <Nav.Link href="#delete-instapost">Delete A Post</Nav.Link>
   </Fragment>
 )
 

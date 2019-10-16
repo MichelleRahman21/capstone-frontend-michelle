@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import React, { useState, useEffect, Fragment } from 'react'
+import { Redirect, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import InstaPostForm from './InstaPost-Form'
 
 const EditInstaPost = ({ user, match, alert, history }) => {
-  const [instapost, setInstaPost] = useState({ title: '', author: '' })
+  const [instapost, setInstaPost] = useState({ title: '', url: [] })
+  const [updated, setUpdated] = useState(null)
 
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `${apiUrl}/instaposts/${match.params.id}`,
-      headers: {
-        'Authorization': `Token token=${user.token}`
-      }
-    })
-      .then(responseData => setInstaPost(responseData.data.book))
+    axios(`${apiUrl}/instaposts/${match.params.id}`)
+      .then(res => setInstaPost(res.data.instaPost))
       .catch(console.error)
   }, [])
 
@@ -29,22 +24,29 @@ const EditInstaPost = ({ user, match, alert, history }) => {
     axios({
       method: 'PATCH',
       url: `${apiUrl}/instaposts/${match.params.id}`,
+      data: { instapost },
       headers: {
-        'Authorization': `Token token=${user.token}`
-      },
-      data: { instapost }
+        'Authorization': `Bearer ${user.token}`
+      }
     })
+      .then(() => setUpdated(true))
       .then(() => alert({ heading: 'Success', message: 'You updated a post!', variant: 'success' }))
       .then(() => history.push(`/instaposts/${match.params.id}`))
       .catch(() => alert({ heading: 'Sorry', message: 'Something went wrong', variant: 'danger' }))
   }
+  if (updated) {
+    return <Redirect to={`/instaposts/${match.params.id}`}/>
+  }
+
   return (
-    <InstaPostForm
-      book={instapost}
-      handleChange={handleChange}
-      handleSubmit={handleSubmit}
-      cancelPath={`/instaposts/${match.params._id}`}
-    />
+    <Fragment>
+      <InstaPostForm
+        instapost={instapost}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        cancelPath={`/instaposts/${match.params._id}`}
+      />
+    </Fragment>
   )
 }
 

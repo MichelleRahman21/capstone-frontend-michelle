@@ -1,33 +1,30 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import { Link } from 'react-router-dom'
 
-const InstaPosts = ({ user, alerts }) => {
-  const [instaposts, setInstaPosts] = useState(null)
+const InstaPosts = props => {
+  const [instaposts, setInstaPosts] = useState([])
+
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `${apiUrl}/instaposts/`,
-      headers: {
-        'Authorization': `Token token=${user.token}`
-      }
-    })
-      .then(responseData => setInstaPosts(responseData.data.instaposts))
+    axios(`${apiUrl}/instaposts/`)
+      .then(res => setInstaPosts(res.data.instaPosts))
       .catch(console.error)
   }, [])
 
   const instapostsJsx = instaposts.map(instapost => (
     <p key={instapost._id}>
       <Link to={`/instaposts/${instapost._id}`}>Postie:{instapost.title}</Link>
-    </p> // mongo uses _id instead of .id
+    </p>
   ))
+  console.log(instaposts)
+
   return (
 
-    <Fragment>
+    <div>
       <h1>Posties</h1>
       {instapostsJsx}
-    </Fragment>
+    </div>
   )
 }
 
