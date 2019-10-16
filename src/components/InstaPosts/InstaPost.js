@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
 import { Link, Redirect, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
@@ -41,7 +41,8 @@ const InstaPost = ({ user, match, alert }) => {
     <div>
       <h1>Posties</h1>
       <h4>Postie: {instapost && instapost.title}</h4>
-      <Button className="btn btn-outline-dark mr-2" href={`#/instaposts/${match.params.id}/edit`}>Edit</Button>
+      <img src={instapost && instapost.url}/>
+      <a className="btn btn-outline-dark mr-2" href={`#/instaposts/${match.params.id}/edit`}>Edit</a>
       <button className="btn btn-outline-dark mr-2" onClick={destroy}>Delete</button>
       <Link to="/instaposts">Back to all Posties</Link>
     </div>

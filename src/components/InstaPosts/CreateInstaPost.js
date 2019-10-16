@@ -5,7 +5,7 @@ import apiUrl from '../../apiConfig'
 import InstaPostForm from './InstaPost-Form'
 
 const CreateInstaPost = ({ user }) => {
-  const instapostObject = { title: '', url: [] } // URL?
+  const instapostObject = { title: '', image: '' } // URL?
   const [created, setCreated] = useState(null)
   const [instapost, setInstaPost] = useState(instapostObject)
 
@@ -16,10 +16,11 @@ const CreateInstaPost = ({ user }) => {
 
   const handleSubmit = event => {
     event.preventDefault()
+    const formData = new FormData(event.target)
     axios({
       method: 'POST',
       url: `${apiUrl}/instaposts`,
-      data: { instapost },
+      data: formData,
       headers: {
         'Authorization': `Bearer ${user.token}`
       }

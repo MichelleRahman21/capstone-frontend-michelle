@@ -9,14 +9,12 @@ const InstaPostForm = ({ instapost, handleChange, handleSubmit }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="url">
+      <Form.Group controlId="image" encType="multipart/form-data">
         <Form.Label>Postie</Form.Label>
         <Form.Control
-          type="text"
-          placeholder="Url"
-          name="url"
+          type="file"
+          name="image"
           onChange={handleChange}
-          value={instapost.url}
           required
         />
         <Form.Group controlId="title">
