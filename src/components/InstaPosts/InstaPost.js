@@ -4,6 +4,11 @@ import { Link, Redirect, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
+const imageStyle = {
+  width: '270px',
+  height: '270px'
+}
+
 const InstaPost = ({ user, match, alert }) => {
   const [instapost, setInstaPost] = useState(null)
   const [deleted, setDeleted] = useState(false)
@@ -36,12 +41,13 @@ const InstaPost = ({ user, match, alert }) => {
   if (deleted) {
     return <Redirect to={{ pathname: '/instaposts' }} />
   }
-
+  // create another button instead of link for back to posties
+  // maybe line 44 is the one that i dont need in order to get only one displayed
   return (
     <div>
       <h1>Posties</h1>
-      <h4>Postie: {instapost && instapost.title}</h4>
-      <img src={instapost && instapost.url}/>
+      <h4>Description: {instapost && instapost.title}</h4>
+      <img style={imageStyle} src={instapost && instapost.url}/>
       <a className="btn btn-outline-dark mr-2" href={`#/instaposts/${match.params.id}/edit`}>Edit</a>
       <button className="btn btn-outline-dark mr-2" onClick={destroy}>Delete</button>
       <Link to="/instaposts">Back to all Posties</Link>

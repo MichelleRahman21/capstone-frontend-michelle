@@ -12,7 +12,6 @@ import InstaPosts from '../InstaPosts/InstaPosts'
 import InstaPost from '../InstaPosts/InstaPost'
 import CreateInstaPost from '../InstaPosts/CreateInstaPost'
 import EditInstaPost from '../InstaPosts/EditInstaPost'
-import DeleteInstaPost from '../InstaPosts/DeleteInstaPost'
 
 class App extends Component {
   state = {
@@ -93,16 +92,6 @@ class App extends Component {
             exact path='/instaposts/:id/edit'
             render={() => (
               <EditInstaPost
-                user={user}
-                alert={this.alert}
-              />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/instaposts/:id'
-            render={() => (
-              <DeleteInstaPost
                 user={user}
                 alert={this.alert}
               />

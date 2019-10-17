@@ -1,1 +1,30 @@
+// $primary: deeppink;
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Saira&display=swap');
+
+.navbar.bg-primary {
+  background-color: steelblue !important;
+}
+
+.navbar-brand {
+  font-family: 'Pacifico', cursive !important;
+  justify-content: center !important;
+  font-size: 27px !important;
+}
+
+.navbar-nav .nav-link {
+  font-family: 'Saira', cursive !important;
+}
+
+.header {
+  font-family: 'Pacifico', cursive !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+h1 {
+  .header{
+    justify-content: center !important;
+  }
+}

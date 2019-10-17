@@ -13,7 +13,7 @@ const InstaPost = (props) => {
   }, [])
 
   if (!instapost) {
-    return <p>Loading...</p>
+    return <p> If you are seeing this, your postie has been removed</p>
   }
   return (
     <div>

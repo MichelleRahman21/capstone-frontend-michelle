@@ -1,7 +1,7 @@
 
 import React from 'react'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
 import { Link, withRouter } from 'react-router-dom' // maybe delete
 
 const InstaPostForm = ({ instapost, handleChange, handleSubmit }) => {
@@ -28,9 +28,9 @@ const InstaPostForm = ({ instapost, handleChange, handleSubmit }) => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">Submit</Button>
+        <button className="btn btn-outline-dark mr-2" type="submit">Submit</button>
         <Link to={cancelPath}>
-          <Button>Cancel</Button>
+          <button className="btn btn-outline-dark mr-2" >Cancel</button>
         </Link>
       </Form.Group>
     </Form>

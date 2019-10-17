@@ -21,14 +21,19 @@ const EditInstaPost = ({ user, match, alert, history }) => {
 
   const handleSubmit = event => {
     event.preventDefault()
+    const formData = new FormData(event.target)
+    // formData.append(match.params.id)
     axios({
       method: 'PATCH',
       url: `${apiUrl}/instaposts/${match.params.id}`,
-      data: { instapost },
+      contenType: false,
+      processData: false,
+      data: formData,
       headers: {
         'Authorization': `Bearer ${user.token}`
       }
     })
+
       .then(() => setUpdated(true))
       .then(() => alert({ heading: 'Success', message: 'You updated a post!', variant: 'success' }))
       .then(() => history.push(`/instaposts/${match.params.id}`))
