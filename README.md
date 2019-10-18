@@ -1,8 +1,9 @@
 # POSTIES
 
 ## Description
+Posties is a full-stack web application created on the most part with React Hooks that allows users to upload their images and save them in the cloud instead of having them storage on your desktop. Initially I wanted to do an Instagram clone but for V1 I will just focus on the ability to store them in an S3 bucket. In the future I want to this to be a real application, I got really excited when I came up with the name so this is a project that I will work on.
 
-
+One thing that I would like to mention is that I based my design on Instagram first version and I am proud that the results where really close from what I was expecting.
 
 ## MVP User Stories
 
@@ -17,7 +18,7 @@
 > - As a signed in user, I would like to see all my posties
 
 ## Reach Goal(s)
-
+AWS S3 Bucket
 
 ### Authentication
 
@@ -39,17 +40,8 @@
 | DELETE | `/instaposts/:id`
 
 ## Wireframes
-![Wireframe](https://i.imgur.com/6GJLI99.png)
+![Wireframe](https://i.imgur.com/Pd2SvL3.jpg)
 
-![Wireframe](https://i.imgur.com/uoD9G9K.png)
-
-![Wireframe](https://i.imgur.com/VUqbzX3.png)
-
-![Wireframe](https://i.imgur.com/Nb9PLRR.png)
-
-![Wireframe](https://i.imgur.com/PcNw9ew.png)
-
-![Wireframe](https://i.imgur.com/7gzVFcu.png)
 ## Tools
 
 ### Deployment
@@ -58,15 +50,8 @@ Github
 Heroku
 
 ### Front-end
-React
+React Hooks
 JSX
-
-Animated CSS
-Bootrasp
-Handlebars
-CanvasJS
-jQuery
-AJAX
 
 ### Back-end
 Postman
@@ -82,8 +67,9 @@ Mongoose
 
 [Back-end url](https://blooming-bayou-14570.herokuapp.com/)
 
-[Front-end url]()
+[Front-end url](https://michellerahman21.github.io/capstone-frontend-michelle/)
 ## Unsolved problems
 Be able to see other people's posties in real time using socket.io
+
 Be able to like their Posties
 In the future I would like to be able to create a format for the profile of the users

@@ -22,7 +22,7 @@ const InstaPost = ({ user, match, alert }) => {
       }
     })
       .then(responseData => setInstaPost(responseData.data.instaPost))
-      .then(() => console.log(instapost))
+      // .then(() => console.log(instapost))
       .catch(console.error)
   }, [])
 
