@@ -5,6 +5,12 @@ Posties is a full-stack web application created on the most part with React Hook
 
 One thing that I would like to mention is that I based my design on Instagram first version and I am proud that the results where really close from what I was expecting.
 
+![Wireframe](https://i.imgur.com/m8dU72m.png)
+
+![Wireframe](https://i.imgur.com/jgYKgrF.png)
+
+![Wireframe](https://i.imgur.com/NpdHKe1.png)
+
 ## MVP User Stories
 
 > - As an unregistered user, I would like to sign up with email and password.
