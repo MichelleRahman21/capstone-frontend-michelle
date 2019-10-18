@@ -11,7 +11,6 @@ One thing that I would like to mention is that I based my design on Instagram fi
 > - As a registered user, I would like to sign in with email and password.
 > - As a signed in user, I would like to change password.
 > - As a signed in user, I would like to sign out.
-> - As a signed in user, I would like to create a survey with a title and possible answers.
 > - As a signed in user, I would like to update my postie.
 > - As a signed in user, I would like to create a postie.
 > - As a signed in user, I would like to delete a postie.
