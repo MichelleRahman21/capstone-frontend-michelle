@@ -25,7 +25,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md" collapseOnSelect>
+  <Navbar bg="primary" variant="dark" expand="md" collapseOnSelecte>
     <Navbar.Brand href="#">
       Posties
     </Navbar.Brand>
