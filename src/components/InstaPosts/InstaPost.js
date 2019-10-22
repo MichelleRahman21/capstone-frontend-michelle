@@ -41,8 +41,8 @@ const InstaPost = ({ user, match, alert }) => {
   if (deleted) {
     return <Redirect to={{ pathname: '/instaposts' }} />
   }
-  // create another button instead of link for back to posties
-  // maybe line 44 is the one that i dont need in order to get only one displayed
+
+  // Description and Posties should have the different font
   return (
     <div>
       <h1>Posties</h1>

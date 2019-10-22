@@ -37,7 +37,7 @@ const EditInstaPost = ({ user, match, alert, history }) => {
       .then(() => setUpdated(true))
       .then(() => alert({ heading: 'Success', message: 'You updated a post!', variant: 'success' }))
       .then(() => history.push(`/instaposts/${match.params.id}`))
-      .catch(() => alert({ heading: 'Sorry', message: 'Something went wrong', variant: 'danger' }))
+      .catch(() => alert({ heading: 'This is not your postie, you can only edit or delete yours', message: 'Sorry', variant: 'danger' }))
   }
   if (updated) {
     return <Redirect to={`/instaposts/${match.params.id}`}/>
