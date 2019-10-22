@@ -35,7 +35,7 @@ const InstaPost = ({ user, match, alert }) => {
       }
     })
       .then(() => setDeleted(true))
-      .catch(console.error)
+      .catch(() => alert({ heading: 'This is not your postie, delete yours', message: 'Sorry', variant: 'danger' }))
   }
 
   if (deleted) {
