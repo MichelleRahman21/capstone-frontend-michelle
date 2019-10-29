@@ -25,7 +25,7 @@ const InstaPosts = props => {
       <img className="col 12" classtyle={imageStyle} src={instapost && instapost.url}/>
     </p>
   ))
-
+  // test
   return (
 
     <div>

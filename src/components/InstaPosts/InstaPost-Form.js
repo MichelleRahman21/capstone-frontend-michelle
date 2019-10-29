@@ -8,7 +8,7 @@ const InstaPostForm = ({ instapost, handleChange, handleSubmit }) => (
 
   <Form onSubmit={handleSubmit}>
     <Form.Group controlId="image" encType="multipart/form-data">
-      <Form.Label>Postie</Form.Label>
+      <Form.Label>Postie:</Form.Label>
       <Form.Control
         type="file"
         name="image"
@@ -16,7 +16,7 @@ const InstaPostForm = ({ instapost, handleChange, handleSubmit }) => (
         required
       />
       <Form.Group controlId="title">
-        <Form.Label>Postie</Form.Label>
+        <Form.Label>Description:</Form.Label>
         <Form.Control
           type="text"
           placeholder="Title"

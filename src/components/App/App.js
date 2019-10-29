@@ -8,6 +8,8 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+
+import Home from '../InstaPosts/Home'
 import InstaPosts from '../InstaPosts/InstaPosts'
 import InstaPost from '../InstaPosts/InstaPost'
 import CreateInstaPost from '../InstaPosts/CreateInstaPost'
@@ -54,6 +56,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
+          )} />
+          <Route user={user} exact path='/' render={() => (
+            <Home alert={this.alert} user={user} />
           )} />
           <AuthenticatedRoute
             user={user}

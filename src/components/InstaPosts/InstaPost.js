@@ -45,7 +45,7 @@ const InstaPost = ({ user, match, alert }) => {
   // Description and Posties should have the different font
   return (
     <div>
-      <h1>Posties</h1>
+      <h1 className="mine">Posties</h1>
       <h4>Description: {instapost && instapost.title}</h4>
       <img style={imageStyle} src={instapost && instapost.url}/>
       <a className="btn btn-outline-dark mr-2" href={`#/instaposts/${match.params.id}/edit`}>Edit</a>
